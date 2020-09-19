@@ -24,6 +24,14 @@ class App extends React.Component {
         );
     }
 
+    componentDidMount() {
+        console.log('>> O Componente foi exibido.');
+    }
+
+    componentDidUpdate() {
+        console.log('>> O Componente foi atualizado.')
+    }
+
     // Obs: Implementar o metodo RENDER eh obrigatorio!
     render() {
         if (this.state.latitude && !this.state.errorMessage) {
@@ -33,7 +41,7 @@ class App extends React.Component {
         } else if (!this.state.latitude && this.state.errorMessage) {
 
             return <div>ErrorMessage: {this.state.errorMessage}</div>;
-            
+
         }
         return <div>Loading...</div>;
     }
