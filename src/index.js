@@ -10,7 +10,10 @@ class App extends React.Component {
 
     /* Aqui no construtor é o UNICO momento em que é
        permitido atribuir diretamente o state! */
-    this.state = { latitude: 'Unknown' };
+    this.state = { 
+      latitude: 'Unknown',
+      errorMessage: ''
+   };
 
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -18,13 +21,21 @@ class App extends React.Component {
         this.setState( { latitude: position.coords.latitude } );
         console.log('Latitude: ' + position.coords.latitude);
       } ,
-      (err) => console.log(err)
+      (err) => { 
+        console.log(err);
+        this.setState({ errorMessage: err.message }); 
+      }
     );
   }
 
   // Obs: Implementar este metodo eh obrigatorio.
   render() {
-    return <div>Latitude: {this.state.latitude}</div>
+    return (
+      <div>
+        <div>Latitude: {this.state.latitude}</div>
+        <div>ErrorMessage: {this.state.errorMessage}</div>
+      </div>
+    );
   }
 }
 
