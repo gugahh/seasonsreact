@@ -1,3 +1,10 @@
+# Seasons App
+
+Parte do treinamento de React do curso da Udemy:
+[Modern React with Redux (2020 update)](https://www.udemy.com/course/react-redux/learn/)
+
+_Recomendo fortemente este curso._
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
