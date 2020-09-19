@@ -1,17 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+
+class App extends React.Component {
+
+  // Constructor eh o primeiro metodo a ser executado na isntancia (precede Render.)
+  constructor(props) {
+
+    super(props); // Obrigatório no Construtor!
+
+    /* Aqui no construtor é o UNICO momento em que é
+       permitido atribuir diretamente o state! */
+    this.state = { latitude: 'Unknown' };
+
+    window.navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log(position);
+        this.setState( { latitude: position.coords.latitude } );
+        console.log('Latitude: ' + position.coords.latitude);
+      } ,
+      (err) => console.log(err)
+    );
+  }
+
+  // Obs: Implementar este metodo eh obrigatorio.
+  render() {
+    return <div>Latitude: {this.state.latitude}</div>
+  }
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <App />,
+    document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
