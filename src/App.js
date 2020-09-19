@@ -13,21 +13,21 @@ class App extends React.Component {
             latitude: null,
             errorMessage: null
         };
+    }
 
+    // Invocado assim que o componente é inicialmenten exibido.
+    // Bom lugar para dataloading.
+    componentDidMount() {
+        console.log('>> O Componente foi exibido.');
         window.navigator.geolocation.getCurrentPosition(
             (position) => {
                 this.setState({ latitude: position.coords.latitude });
             },
-            (err) => {
-                this.setState({ errorMessage: err.message });
-            }
+            (err) => this.setState({ errorMessage: err.message })
         );
     }
 
-    componentDidMount() {
-        console.log('>> O Componente foi exibido.');
-    }
-
+    // Invocado quando há alteração no estado ('state') do objeto.
     componentDidUpdate() {
         console.log('>> O Componente foi atualizado.')
     }
