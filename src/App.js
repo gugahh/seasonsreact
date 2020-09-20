@@ -1,5 +1,6 @@
 import React from 'react';
 import SeasonDisplay from './SeasonDisplay';
+import Spinner from './Spinner';
 
 class App extends React.Component {
 
@@ -45,7 +46,7 @@ class App extends React.Component {
             return <div>ErrorMessage: {this.state.errorMessage}</div>;
 
         }
-        return <div>Loading...</div>;
+        return <Spinner />;
     }
 
 }

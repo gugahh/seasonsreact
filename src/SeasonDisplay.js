@@ -18,7 +18,7 @@ const SeasonDisplay = (props) => {
     const mesAtual = new Date().getMonth() + 1;
 
     const season = getSeason(latitude, mesAtual);
-    const { text, iconName, iconColor } = seasonConfig[season];
+    const { text, iconName } = seasonConfig[season];
         
     return (
         <div className={`season-display ${season}`}>
