@@ -34,8 +34,7 @@ class App extends React.Component {
         console.log('>> O Componente foi atualizado.')
     }
 
-    // Obs: Implementar o metodo RENDER eh obrigatorio!
-    render() {
+    renderContent() {
         if (this.state.latitude && !this.state.errorMessage) {
 
             return <SeasonDisplay
@@ -47,6 +46,15 @@ class App extends React.Component {
 
         }
         return <Spinner message="Please accept location request ..."/>;
+    }
+
+    // Obs: Implementar o metodo RENDER eh obrigatorio!
+    render() {
+        return (
+            <div>
+                {this.renderContent()}
+            </div>
+        );
     }
 
 }
