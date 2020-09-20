@@ -46,7 +46,7 @@ class App extends React.Component {
             return <div>ErrorMessage: {this.state.errorMessage}</div>;
 
         }
-        return <Spinner />;
+        return <Spinner text="Loading"/>;
     }
 
 }
